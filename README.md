@@ -1,98 +1,59 @@
-# College AI Chatbot
+# College AI Assistant
 
-A modern, real-time AI chatbot built for college students using OpenAI's GPT-4o-mini model. Features a beautiful chat interface with streaming responses and conversation history.
+A real-time AI chatbot for college students, built with **Node.js, Express and Google Gemini**. It answers questions about admissions, academics, coursework and career guidance in a clean chat interface that keeps conversation context.
 
 ## Features
 
-- **Real-time Streaming**: Responses appear as they're generated for a smooth chat experience
-- **Chat History**: Maintains conversation context throughout the session
-- **Modern UI**: Clean, responsive design with chat bubbles and animations
-- **Error Handling**: Graceful error messages and loading indicators
-- **College-Focused**: Optimized prompts for educational assistance
+- **Context-aware chat**: sends the conversation history with every message, so follow-up questions work naturally
+- **College-focused answers**: a custom system prompt keeps replies short, clear and actionable (2–3 paragraphs)
+- **Modern UI**: responsive chat bubbles, animations and loading indicators
+- **Error handling**: clear error messages when the AI service fails
 
-## Prerequisites
+## Tech stack
 
-- Node.js (v18 or higher)
-- npm
-- OpenAI API key
+- **Backend**: Node.js, Express.js
+- **AI**: Google Gemini (`gemini-2.5-flash`) via `@google/generative-ai`
+- **Frontend**: HTML, CSS, vanilla JavaScript
+- **Linting / formatting**: Biome
 
-## Installation
+## Run it locally
 
-1. Clone or download the project files
-2. Install dependencies:
-   ```bash
-   npm install
-   ```
+Prerequisites: Node.js v18+ and a Google Gemini API key from [Google AI Studio](https://aistudio.google.com/app/apikey).
 
-3. Create a `.env` file in the root directory:
-   ```
-   OPENAI_API_KEY=your_openai_api_key_here
-   ```
+```bash
+npm install
+```
 
-4. Get your API key from [OpenAI Platform](https://platform.openai.com/api-keys)
+Create a `.env` file in the project root:
 
-## Running Locally
+```
+GOOGLE_API_KEY=your_gemini_api_key_here
+```
+
+Start the server:
 
 ```bash
 npm start
 ```
 
-Open your browser and navigate to `http://localhost:3003`
+Then open `http://localhost:3003` in your browser.
 
 ## Deployment
 
-### Option 1: Heroku
-1. Create a Heroku account
-2. Install Heroku CLI
-3. Login and create app:
-   ```bash
-   heroku login
-   heroku create your-app-name
-   ```
-4. Set environment variable:
-   ```bash
-   heroku config:set OPENAI_API_KEY=your_key_here
-   ```
-5. Deploy:
-   ```bash
-   git push heroku main
-   ```
+The app runs on any Node.js host (Render, Railway, Vercel, Heroku). Connect this repo, add `GOOGLE_API_KEY` as an environment variable, and deploy. The server uses `process.env.PORT` when the host provides one.
 
-### Option 2: Vercel
-1. Install Vercel CLI: `npm i -g vercel`
-2. Deploy: `vercel`
-3. Set OPENAI_API_KEY in Vercel dashboard
+## Project structure
 
-### Option 3: Railway
-1. Connect your GitHub repo
-2. Add OPENAI_API_KEY environment variable
-3. Deploy automatically
+- `server.js` – Express server and the `/chat` endpoint that calls Gemini
+- `index.html` – chat interface
+- `package.json` – dependencies and scripts
+- `College_AI_Assistant.pptx` / `create_presentation.py` – project presentation and the script that generates it
+- `.env` – API key (not committed)
 
-## Project Structure
+## Team
 
-- `server.js` - Express server with OpenAI integration
-- `index.html` - Frontend chat interface
-- `package.json` - Dependencies and scripts
-- `.env` - Environment variables (not committed)
-
-## Technologies Used
-
-- **Backend**: Node.js, Express.js
-- **AI**: OpenAI GPT-4o-mini
-- **Frontend**: Vanilla JavaScript, CSS
-- **Linting**: Biome
-
-## Usage Tips
-
-- Ask questions about coursework, programming, math, science, etc.
-- The bot maintains context, so follow-up questions work well
-- For coding help, specify the language and problem clearly
+Built by Surya Pratap Singh, Amisha Singh and Lakshmi Pal (B.Tech CS-AIML).
 
 ## License
 
-MIT License - Free for educational use
-
-## Contributing
-
-Feel free to improve the UI, add features, or optimize performance!</content>
-<parameter name="filePath">c:\Users\babua\OneDrive\Desktop\mychaat\README.md
+MIT
